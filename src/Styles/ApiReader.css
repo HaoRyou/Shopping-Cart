@@ -1,0 +1,29 @@
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 20px; /* space between items */
+  max-width: 1200px; /* keeps the grid from stretching too wide */
+  margin: 40px auto; /* center horizontally with spacing on top/bottom */
+  padding: 10px;
+}
+
+.Item {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.Item:hover {
+  transform: scale(1.03);
+}
+
+.Item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
