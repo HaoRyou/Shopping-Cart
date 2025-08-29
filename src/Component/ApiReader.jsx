@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-import Usercart from './Usercart';
 import '../Styles/ApiReader.css';
 
-function ApiReader({ page, onAdd }) {
+function ApiReader({ page, onAdd, setStoring }) {
   const [allItems, setAllItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [storing, setStoring] = useState([]);
 
   const limit = 12;
   const startIndex = (page - 1) * limit;
@@ -32,7 +30,9 @@ function ApiReader({ page, onAdd }) {
 
   const handleAdd = (item) => {
     setStoring((prev) => [...prev, { image: item.image, price: item.price }]);
-    onAdd;
+    if (onAdd) {
+      onAdd(item); // Notify parent if callback exists
+    }
   };
 
   return (
@@ -44,7 +44,8 @@ function ApiReader({ page, onAdd }) {
           <h5>Description: {p.description}</h5>
           <h5>Price: ${p.price}</h5>
 
-          <button onClick={handleAdd(p)}>Add</button>
+          {/* FIX: Wrap in arrow function so it runs only on click */}
+          <button onClick={() => handleAdd(p)}>Add</button>
         </div>
       ))}
     </div>

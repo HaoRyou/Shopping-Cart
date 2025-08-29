@@ -1,6 +1,5 @@
 import Home_page from './Component/Home_page';
 import Storelist from './Component/Store_list';
-import Usercart from './Component/Usercart';
 
 const routes = [
   {
@@ -10,10 +9,6 @@ const routes = [
   {
     path: '/Storelist',
     element: <Storelist />,
-  },
-  {
-    path: '/usercart',
-    element: <Usercart />,
   },
 ];
 
